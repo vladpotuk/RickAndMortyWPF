@@ -4,8 +4,10 @@
         xmlns:local="clr-namespace:RickAndMortyWPF.Views"
         Title="Rick and Morty Characters" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="CharacterListBox" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="300" Margin="10" DisplayMemberPath="Name"/>
-        <Image x:Name="CharacterImage" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="200" Margin="320,10,0,0"/>
-        <TextBlock x:Name="CharacterDetails" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,220,0,0" Width="460"/>
+        <ListBox x:Name="CharacterListBox" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="300"/>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Width="450">
+            <Image x:Name="CharacterImage" Height="200" Margin="10"/>
+            <TextBlock x:Name="CharacterDetails" TextWrapping="Wrap" Margin="10"/>
+        </StackPanel>
     </Grid>
 </Window>

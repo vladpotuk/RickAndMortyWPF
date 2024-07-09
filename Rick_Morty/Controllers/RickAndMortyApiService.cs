@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -26,7 +25,7 @@ namespace RickAndMortyWPF.Controllers
                     var data = JsonConvert.DeserializeObject<ApiResponse>(content);
                     characters.AddRange(data.Results);
 
-                    // Check if more pages are available
+                    
                     morePages = data.Results.Count > 0;
                     page++;
                 }
@@ -41,6 +40,11 @@ namespace RickAndMortyWPF.Controllers
 
         public async Task<Location> GetLocationAsync(string url)
         {
+            if (string.IsNullOrEmpty(url))
+            {
+                return new Location { Name = "Unknown" };
+            }
+
             var response = await _httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
 
@@ -54,6 +58,11 @@ namespace RickAndMortyWPF.Controllers
             var episodes = new List<Episode>();
             foreach (var url in episodeUrls)
             {
+                if (string.IsNullOrEmpty(url))
+                {
+                    continue;
+                }
+
                 var response = await _httpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
 

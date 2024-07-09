@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RickAndMortyWPF.Models
+﻿namespace RickAndMortyWPF.Models
 {
     public class Character
     {
@@ -11,5 +9,11 @@ namespace RickAndMortyWPF.Models
         public string Image { get; set; } = string.Empty;
         public List<string> Episode { get; set; } = new List<string>();
         public Location Origin { get; set; } = new Location();
+
+        
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

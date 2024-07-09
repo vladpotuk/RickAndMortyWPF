@@ -5,7 +5,6 @@ using RickAndMortyWPF.Models;
 using RickAndMortyWPF.Controllers;
 using System.Windows.Media.Imaging;
 using System.Text;
-using System.Linq;
 
 namespace RickAndMortyWPF.Views
 {
